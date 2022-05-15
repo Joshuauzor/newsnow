@@ -11,14 +11,11 @@ class HomeCubit extends Cubit<HomeState> {
 
   final NewsUseCase newsUseCase;
 
-  String? test = 'test man';
   Future getNews(
     BuildContext context,
   ) async {
     emit(const HomeState.loading());
     final result = await newsUseCase(const NewsUseCaseParams());
-    Logger().d('man work nah');
-    Logger().d(result);
     emit(
       result
           .fold((failure) => HomeState.error(ConvertFailureToString()(failure)),

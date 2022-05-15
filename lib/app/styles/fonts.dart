@@ -89,6 +89,7 @@ class HeaderText extends AppTextBase {
     double fontSize = 28,
     TextAlign? textAlign,
     TextOverflow? overflow,
+    Color? color,
     FontWeight fontWeight = FontWeight.w500,
     int maxLines = 2,
   }) : super(
@@ -98,6 +99,7 @@ class HeaderText extends AppTextBase {
             fontSize: fontSize,
             fontFamily: AppFonts.roboto,
             fontWeight: fontWeight,
+            color: color ?? AppColors.white,
           ).merge(style),
           textAlign: textAlign ?? TextAlign.left,
           overflow: overflow ?? TextOverflow.visible,
@@ -116,6 +118,7 @@ class TextRegular extends AppTextBase {
     Color? color,
     TextAlign textAlign = TextAlign.left,
     TextOverflow overflow = TextOverflow.visible,
+    String fontFamily = AppFonts.roboto,
     int maxLines = 2,
   }) : super(
           text,
@@ -125,7 +128,7 @@ class TextRegular extends AppTextBase {
           style: TextStyle(
             fontSize: fontSize,
             fontWeight: fontWeight,
-            fontFamily: AppFonts.roboto,
+            fontFamily: fontFamily,
             color: color ?? AppColors.white,
           ).merge(style),
           textAlign: textAlign,

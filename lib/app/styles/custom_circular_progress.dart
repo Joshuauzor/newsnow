@@ -12,10 +12,11 @@ class CustomCircularProgressIndicator extends StatelessWidget {
     return Platform.isIOS
         ? const CupertinoActivityIndicator(
             radius: 15,
-            color: AppColors.primaryColor,
+            color: AppColors.white,
           )
         : const CircularProgressIndicator(
-            color: AppColors.primaryColor,
+            color: AppColors.white,
+            backgroundColor: AppColors.white,
           );
   }
 }

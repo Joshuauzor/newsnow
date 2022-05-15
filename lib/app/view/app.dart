@@ -23,7 +23,7 @@ class App extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch(
               accentColor: AppColors.primaryColor,
             ),
-            scaffoldBackgroundColor: AppColors.kBackground,
+            scaffoldBackgroundColor: AppColors.black,
           ),
           initialRoute: RouteName.onboarding,
         );
