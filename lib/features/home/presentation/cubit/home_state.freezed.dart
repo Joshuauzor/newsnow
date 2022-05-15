@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'onboarding_state.dart';
+part of 'home_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,8 +15,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$OnboardingStateTearOff {
-  const _$OnboardingStateTearOff();
+class _$HomeStateTearOff {
+  const _$HomeStateTearOff();
 
   $_Initial initial() {
     return const $_Initial();
@@ -40,10 +40,10 @@ class _$OnboardingStateTearOff {
 }
 
 /// @nodoc
-const $OnboardingState = _$OnboardingStateTearOff();
+const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc
-mixin _$OnboardingState {
+mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -97,20 +97,18 @@ mixin _$OnboardingState {
 }
 
 /// @nodoc
-abstract class $OnboardingStateCopyWith<$Res> {
-  factory $OnboardingStateCopyWith(
-          OnboardingState value, $Res Function(OnboardingState) then) =
-      _$OnboardingStateCopyWithImpl<$Res>;
+abstract class $HomeStateCopyWith<$Res> {
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
+      _$HomeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OnboardingStateCopyWithImpl<$Res>
-    implements $OnboardingStateCopyWith<$Res> {
-  _$OnboardingStateCopyWithImpl(this._value, this._then);
+class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+  _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final OnboardingState _value;
+  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(OnboardingState) _then;
+  final $Res Function(HomeState) _then;
 }
 
 /// @nodoc
@@ -120,7 +118,7 @@ abstract class $$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$$_InitialCopyWithImpl<$Res> extends _$OnboardingStateCopyWithImpl<$Res>
+class _$$_InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     implements $$_InitialCopyWith<$Res> {
   _$$_InitialCopyWithImpl($_Initial _value, $Res Function($_Initial) _then)
       : super(_value, (v) => _then(v as $_Initial));
@@ -136,7 +134,7 @@ class _$$_Initial implements $_Initial {
 
   @override
   String toString() {
-    return 'OnboardingState.initial()';
+    return 'HomeState.initial()';
   }
 
   @override
@@ -223,7 +221,7 @@ class _$$_Initial implements $_Initial {
   }
 }
 
-abstract class $_Initial implements OnboardingState {
+abstract class $_Initial implements HomeState {
   const factory $_Initial() = _$$_Initial;
 }
 
@@ -234,7 +232,7 @@ abstract class $$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$$_LoadingCopyWithImpl<$Res> extends _$OnboardingStateCopyWithImpl<$Res>
+class _$$_LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     implements $$_LoadingCopyWith<$Res> {
   _$$_LoadingCopyWithImpl($_Loading _value, $Res Function($_Loading) _then)
       : super(_value, (v) => _then(v as $_Loading));
@@ -250,7 +248,7 @@ class _$$_Loading implements $_Loading {
 
   @override
   String toString() {
-    return 'OnboardingState.loading()';
+    return 'HomeState.loading()';
   }
 
   @override
@@ -337,7 +335,7 @@ class _$$_Loading implements $_Loading {
   }
 }
 
-abstract class $_Loading implements OnboardingState {
+abstract class $_Loading implements HomeState {
   const factory $_Loading() = _$$_Loading;
 }
 
@@ -349,7 +347,7 @@ abstract class $$_ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$$_ErrorCopyWithImpl<$Res> extends _$OnboardingStateCopyWithImpl<$Res>
+class _$$_ErrorCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     implements $$_ErrorCopyWith<$Res> {
   _$$_ErrorCopyWithImpl($_Error _value, $Res Function($_Error) _then)
       : super(_value, (v) => _then(v as $_Error));
@@ -380,7 +378,7 @@ class _$$_Error implements $_Error {
 
   @override
   String toString() {
-    return 'OnboardingState.error(error: $error)';
+    return 'HomeState.error(error: $error)';
   }
 
   @override
@@ -475,7 +473,7 @@ class _$$_Error implements $_Error {
   }
 }
 
-abstract class $_Error implements OnboardingState {
+abstract class $_Error implements HomeState {
   const factory $_Error(String error) = _$$_Error;
 
   String get error;
@@ -491,7 +489,7 @@ abstract class $$_LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$$_LoadedCopyWithImpl<$Res> extends _$OnboardingStateCopyWithImpl<$Res>
+class _$$_LoadedCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     implements $$_LoadedCopyWith<$Res> {
   _$$_LoadedCopyWithImpl($_Loaded _value, $Res Function($_Loaded) _then)
       : super(_value, (v) => _then(v as $_Loaded));
@@ -522,7 +520,7 @@ class _$$_Loaded implements $_Loaded {
 
   @override
   String toString() {
-    return 'OnboardingState.loaded(news: $news)';
+    return 'HomeState.loaded(news: $news)';
   }
 
   @override
@@ -617,7 +615,7 @@ class _$$_Loaded implements $_Loaded {
   }
 }
 
-abstract class $_Loaded implements OnboardingState {
+abstract class $_Loaded implements HomeState {
   const factory $_Loaded(List<dynamic>? news) = _$$_Loaded;
 
   List<dynamic>? get news;
