@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:newsnow/app/app.dart';
 import 'package:newsnow/app/styles/fonts.dart';
-import 'package:newsnow/core/constant/fonts.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:newsnow/core/core.dart';
 import 'package:newsnow/features/features.dart';
 import 'package:newsnow/injections.dart';
@@ -55,42 +56,55 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Gap(24),
                         Searchbar(searchController: _searchController),
                         const Gap(16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            HeaderText(
-                              'Hot Topics',
-                              fontWeight: FontWeight.w700,
-                              fontSize: 36,
-                            ),
-                            Container(
-                              height: 305,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(AppAsset.swimming),
-                                  fit: BoxFit.cover,
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                HeaderText(
+                                  'Hot Topics',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 36,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    TextRegular(
+                                const Gap(16),
+                                const Hottopics(
+                                  title:
                                       'Massa tortor nibh nulla condimentum imperdiet scelerisque...',
-                                      color: AppColors.white,
-                                      fontSize: 16,
+                                  ago: '2 hours ago',
+                                  source: 'CNN UK',
+                                ),
+                                const Gap(40),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    HeaderText(
+                                      'Latest News',
                                       fontWeight: FontWeight.w700,
-                                      fontFamily: AppFonts.playFair,
+                                      fontSize: 24,
                                     ),
-                                    const Gap(8),
+                                    SvgPicture.asset(AppAsset.play)
                                   ],
                                 ),
-                              ),
-                            )
-                          ],
+                                const Gap(8),
+                                StaggeredGrid.count(
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 20,
+                                  crossAxisSpacing: 20,
+                                  children: news
+                                      .map(
+                                        (e) => Latestnews(
+                                          imageUrl: e.urlToImage!,
+                                          title: e.title,
+                                          ago: '1 hour ago',
+                                          source: e.source.name,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ],
+                            ),
+                          ),
                         )
                       ],
                     ),

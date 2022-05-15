@@ -32,7 +32,7 @@ class _$HomeStateTearOff {
     );
   }
 
-  $_Loaded loaded(List<dynamic>? news) {
+  $_Loaded loaded(List<News> news) {
     return $_Loaded(
       news,
     );
@@ -49,7 +49,7 @@ mixin _$HomeState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<dynamic>? news) loaded,
+    required TResult Function(List<News> news) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +57,7 @@ mixin _$HomeState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +65,7 @@ mixin _$HomeState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,7 +152,7 @@ class _$$_Initial implements $_Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<dynamic>? news) loaded,
+    required TResult Function(List<News> news) loaded,
   }) {
     return initial();
   }
@@ -163,7 +163,7 @@ class _$$_Initial implements $_Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
   }) {
     return initial?.call();
   }
@@ -174,7 +174,7 @@ class _$$_Initial implements $_Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -266,7 +266,7 @@ class _$$_Loading implements $_Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<dynamic>? news) loaded,
+    required TResult Function(List<News> news) loaded,
   }) {
     return loading();
   }
@@ -277,7 +277,7 @@ class _$$_Loading implements $_Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
   }) {
     return loading?.call();
   }
@@ -288,7 +288,7 @@ class _$$_Loading implements $_Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -404,7 +404,7 @@ class _$$_Error implements $_Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<dynamic>? news) loaded,
+    required TResult Function(List<News> news) loaded,
   }) {
     return error(this.error);
   }
@@ -415,7 +415,7 @@ class _$$_Error implements $_Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
   }) {
     return error?.call(this.error);
   }
@@ -426,7 +426,7 @@ class _$$_Error implements $_Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -485,7 +485,7 @@ abstract class $_Error implements HomeState {
 abstract class $$_LoadedCopyWith<$Res> {
   factory $$_LoadedCopyWith($_Loaded value, $Res Function($_Loaded) then) =
       _$$_LoadedCopyWithImpl<$Res>;
-  $Res call({List<dynamic>? news});
+  $Res call({List<News> news});
 }
 
 /// @nodoc
@@ -505,7 +505,7 @@ class _$$_LoadedCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
       news == freezed
           ? _value.news
           : news // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<News>,
     ));
   }
 }
@@ -516,7 +516,7 @@ class _$$_Loaded implements $_Loaded {
   const _$$_Loaded(this.news);
 
   @override
-  final List<dynamic>? news;
+  final List<News> news;
 
   @override
   String toString() {
@@ -546,7 +546,7 @@ class _$$_Loaded implements $_Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(List<dynamic>? news) loaded,
+    required TResult Function(List<News> news) loaded,
   }) {
     return loaded(news);
   }
@@ -557,7 +557,7 @@ class _$$_Loaded implements $_Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
   }) {
     return loaded?.call(news);
   }
@@ -568,7 +568,7 @@ class _$$_Loaded implements $_Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(List<dynamic>? news)? loaded,
+    TResult Function(List<News> news)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -616,9 +616,9 @@ class _$$_Loaded implements $_Loaded {
 }
 
 abstract class $_Loaded implements HomeState {
-  const factory $_Loaded(List<dynamic>? news) = _$$_Loaded;
+  const factory $_Loaded(List<News> news) = _$$_Loaded;
 
-  List<dynamic>? get news;
+  List<News> get news;
   @JsonKey(ignore: true)
   $$_LoadedCopyWith<$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
