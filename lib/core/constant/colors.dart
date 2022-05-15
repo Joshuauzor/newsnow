@@ -5,4 +5,5 @@ class AppColors {
   static const black = Color(0xff000000);
   static const primaryColor = Color(0xffB10009);
   static const kBackground = Color(0xff1E1E1E);
+  static const kDarkAsh = Color(0xFFC4C4C4);
 }

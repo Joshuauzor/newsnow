@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:newsnow/features/features.dart';
 
 part 'home_state.freezed.dart';
 
@@ -8,5 +9,5 @@ class HomeState with _$HomeState {
 
   const factory HomeState.loading() = $_Loading;
   const factory HomeState.error(String error) = $_Error;
-  const factory HomeState.loaded(List? news) = $_Loaded;
+  const factory HomeState.loaded(List<News> news) = $_Loaded;
 }
