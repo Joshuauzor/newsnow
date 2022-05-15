@@ -8,7 +8,7 @@ part of 'news_model.dart';
 
 NewsModel _$NewsModelFromJson(Map<String, dynamic> json) => NewsModel(
       source: SourceModel.fromJson(json['source'] as Map<String, dynamic>),
-      author: json['author'] as String,
+      author: json['author'] as String?,
       title: json['title'] as String,
       description: json['description'] as String,
       urlToImage: json['urlToImage'] as String?,

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:newsnow/core/errors/error.dart';
 import 'package:newsnow/core/errors/failure.dart';
 import 'package:newsnow/features/features.dart';
@@ -16,10 +17,11 @@ class NewsRepositoryImpl implements NewsRepository {
     required bool fromRemote,
   }) async {
     try {
-      final remoteNews =
+      final response =
           await newsRemoteDataSource.getNews(fromRemote: fromRemote);
-      return Right(remoteNews);
+      return Right(response);
     } catch (e) {
+      print(e);
       if (e is NewsNowException) {
         return Left(
           e.when(

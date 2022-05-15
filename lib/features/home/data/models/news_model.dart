@@ -7,7 +7,7 @@ part 'news_model.g.dart';
 class NewsModel extends News {
   const NewsModel({
     required SourceModel source,
-    required String author,
+    String? author,
     required String title,
     required String description,
     String? urlToImage,

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:newsnow/core/constant/constant.dart';
 import 'package:newsnow/core/errors/error.dart';
 import 'package:newsnow/core/network/network_info.dart';
@@ -44,7 +45,6 @@ class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
     if (fromRemote) {
       if (await networkInfo.isConnected) {
         final response = await client.getNews();
-
         return NewsListModel.fromJson(
           response.response.data as Map<String, dynamic>,
         ).list;
