@@ -11,14 +11,14 @@ import 'package:newsnow/core/utils/time_utils.dart';
 import 'package:newsnow/features/features.dart';
 import 'package:newsnow/injections.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class LatestNewsScreen extends StatefulWidget {
+  const LatestNewsScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<LatestNewsScreen> createState() => _LatestNewsScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _LatestNewsScreenState extends State<LatestNewsScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       create: (context) => HomeCubit(
         newsUseCase: sl<NewsUseCase>(),
         latestNewsUseCase: sl<LatestNewsUseCase>(),
-      )..getNews(context),
+      )..getLatestNews(context),
       child: Scaffold(
         body: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {

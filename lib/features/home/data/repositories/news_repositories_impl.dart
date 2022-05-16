@@ -21,7 +21,37 @@ class NewsRepositoryImpl implements NewsRepository {
           await newsRemoteDataSource.getNews(fromRemote: fromRemote);
       return Right(response);
     } catch (e) {
-      print(e);
+      if (e is NewsNowException) {
+        return Left(
+          e.when(
+            server: Failure.serverError,
+            noInternet: Failure.noInternet,
+            app: Failure.app,
+            unknown: Failure.unknown,
+          ),
+        );
+      } else if (e is DioError) {
+        return Left(
+          Failure.serverError(
+            (e.response?.data
+                    as Map<String, dynamic>?)?['responseDescription'] ??
+                e.message,
+          ),
+        );
+      }
+      return const Left(Failure.unknown());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> getLatestNews({
+    required bool fromRemote,
+  }) async {
+    try {
+      final response =
+          await newsRemoteDataSource.getLatestNews(fromRemote: fromRemote);
+      return Right(response);
+    } catch (e) {
       if (e is NewsNowException) {
         return Left(
           e.when(
