@@ -13,7 +13,8 @@ class NewsUseCase implements UseCase<List<NewsModel>, NewsUseCaseParams> {
 
   @override
   Future<Either<Failure, List<NewsModel>>> call(
-      NewsUseCaseParams params) async {
+    NewsUseCaseParams params,
+  ) async {
     return repository.getNews(fromRemote: params.fromRemote);
   }
 }

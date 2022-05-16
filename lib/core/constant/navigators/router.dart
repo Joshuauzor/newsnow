@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsnow/core/core.dart';
 import 'package:newsnow/features/features.dart';
-import 'package:newsnow/features/home/presentation/pages/home_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -15,6 +14,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name!,
         viewToShow: const HomeScreen(),
+      );
+
+    case RouteName.appTab:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AppTabView(),
       );
 
     default:

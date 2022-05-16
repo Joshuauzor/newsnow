@@ -25,7 +25,7 @@ class _NewsApiClient implements NewsApiClient {
         HttpResponse<dynamic>>(Options(
             method: 'GET', headers: _headers, extra: _extra)
         .compose(_dio.options,
-            '/everything?q=tesla&from=2022-04-15&sortBy=publishedAt&apiKey=31c13955384f491586487900a603cca2',
+            '/everything?q=apple&from=2022-05-14&to=2022-05-14&sortBy=popularity&apiKey=31c13955384f491586487900a603cca2',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data;

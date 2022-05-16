@@ -11,7 +11,7 @@ abstract class NewsApiClient {
   }) = _NewsApiClient;
 
   @GET(
-    '/everything?q=tesla&from=2022-04-15&sortBy=publishedAt&apiKey=31c13955384f491586487900a603cca2',
+    '/everything?q=apple&from=2022-05-14&to=2022-05-14&sortBy=popularity&apiKey=31c13955384f491586487900a603cca2',
   )
   Future<HttpResponse> getNews();
 }

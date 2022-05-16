@@ -16,7 +16,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       const Duration(seconds: 3),
       () => Navigator.pushReplacementNamed(
         context,
-        RouteName.home,
+        RouteName.appTab,
       ),
     );
     super.initState();

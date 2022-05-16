@@ -11,11 +11,13 @@ class Hottopics extends StatelessWidget {
     required this.title,
     required this.ago,
     required this.source,
+    this.image = '',
   }) : super(key: key);
 
   final String title;
   final String ago;
   final String source;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class Hottopics extends StatelessWidget {
       height: screenHeight(context) * 0.3,
       width: double.infinity,
       decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage(AppAsset.swimming),
+        image: DecorationImage(
+          image: NetworkImage(image ?? ''),
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(8),

@@ -8,13 +8,13 @@ import 'package:newsnow/core/core.dart';
 class Latestnews extends StatelessWidget {
   const Latestnews({
     Key? key,
-    required this.imageUrl,
+    this.imageUrl,
     required this.title,
     required this.ago,
     required this.source,
   }) : super(key: key);
 
-  final String imageUrl;
+  final String? imageUrl;
   final String title;
   final String ago;
   final String source;
@@ -25,7 +25,7 @@ class Latestnews extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CachedNetworkImage(
-          imageUrl: imageUrl,
+          imageUrl: imageUrl ?? '',
           imageBuilder: (
             context,
             imageProvider,
