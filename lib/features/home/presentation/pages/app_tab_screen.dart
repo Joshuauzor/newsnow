@@ -31,7 +31,7 @@ class _AppTabViewState extends State<AppTabView> {
   Widget build(BuildContext context) {
     final _widgetOptions = <Widget?>[
       const HomeScreen(),
-      Container(),
+      const LatestNewsScreen(),
       Container(),
       Container(),
     ];

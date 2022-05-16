@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocProvider<HomeCubit>(
       create: (context) => HomeCubit(
         newsUseCase: sl<NewsUseCase>(),
-        latestNewsUseCase: sl<LatestNewsUseCase>(),
       )..getNews(context),
       child: Scaffold(
         body: BlocBuilder<HomeCubit, HomeState>(

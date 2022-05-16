@@ -14,8 +14,9 @@ import 'core/network/network_info.dart' as _i5;
 import 'features/features.dart' as _i7;
 import 'features/home/data/datasources/news_remote_datasource.dart' as _i6;
 import 'features/home/data/repositories/news_repositories_impl.dart' as _i8;
+import 'features/home/domain/usecases/latest_news_usecases.dart' as _i10;
 import 'features/home/domain/usecases/news_usecases.dart' as _i9;
-import 'register_module.dart' as _i10; // ignore_for_file: unnecessary_lambdas
+import 'register_module.dart' as _i11; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -34,7 +35,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i8.NewsRepositoryImpl(get<_i7.NewsRemoteDataSource>()));
   gh.lazySingleton<_i9.NewsUseCase>(
       () => _i9.NewsUseCase(get<_i7.NewsRepository>()));
+  gh.lazySingleton<_i10.LatestNewsUseCase>(
+      () => _i10.LatestNewsUseCase(get<_i7.NewsRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i10.RegisterModule {}
+class _$RegisterModule extends _i11.RegisterModule {}
