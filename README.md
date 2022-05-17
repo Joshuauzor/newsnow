@@ -8,11 +8,8 @@
 ## Getting Started 🚀
 
 
-```
-
 _\*Newsnow works on iOS, Android, Web, and Windows._
 
----
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
