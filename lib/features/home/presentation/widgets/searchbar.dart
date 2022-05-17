@@ -21,6 +21,7 @@ class Searchbar extends StatelessWidget {
       ),
       child: TextField(
         controller: _searchController,
+        keyboardType: TextInputType.text,
         decoration: const InputDecoration(
           hintText: 'Search for news',
           hintStyle: TextStyle(

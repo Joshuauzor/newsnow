@@ -81,6 +81,7 @@ class TrendingList extends StatelessWidget {
             ),
           ),
         ),
+        const Gap(5),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

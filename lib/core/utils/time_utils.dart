@@ -11,7 +11,7 @@ class TimeUtils {
   }
 
   static String datePublished(DateTime dateTime) {
-    final formatter = DateFormat('MMMMEEEEd');
+    final formatter = DateFormat('yMMMMd');
     return formatter.format(dateTime);
   }
 }

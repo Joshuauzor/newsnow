@@ -7,6 +7,7 @@ import 'package:newsnow/app/app.dart';
 import 'package:newsnow/app/styles/fonts.dart';
 import 'package:newsnow/core/core.dart';
 import 'package:newsnow/core/utils/greeting_utils.dart';
+import 'package:newsnow/core/utils/string_utils.dart';
 import 'package:newsnow/core/utils/time_utils.dart';
 import 'package:newsnow/features/features.dart';
 import 'package:newsnow/injections.dart';
@@ -20,6 +21,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
+
+  String _searchText = '';
+
+  @override
+  void initState() {
+    _searchText = _searchController.text.trim();
+    _searchController.addListener(() {
+      setState(() {
+        _searchText = _searchController.text.trim();
+      });
+    });
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -43,6 +57,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
               loaded: (news) {
+                // ignore: omit_local_variable_types
+                final List<News> _newsList = _searchText.isEmpty
+                    ? news
+                    : news
+                        .where(
+                          (item) =>
+                              item.title.contains(
+                                RegExp(
+                                  StringUtil.escapeSpecial(_searchText),
+                                  caseSensitive: false,
+                                ),
+                              ) ||
+                              item.title.contains(
+                                RegExp(
+                                  StringUtil.escapeSpecial(_searchText),
+                                  caseSensitive: false,
+                                ),
+                              ),
+                        )
+                        .toList();
                 return SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -56,7 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: AppColors.white,
                         ),
                         const Gap(24),
-                        Searchbar(searchController: _searchController),
+                        Searchbar(
+                          searchController: _searchController,
+                        ),
                         const Gap(16),
                         Expanded(
                           child: SingleChildScrollView(
@@ -106,38 +142,46 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 ),
                                 const Gap(8),
-                                StaggeredGrid.count(
-                                  crossAxisCount: 2,
-                                  mainAxisSpacing: 20,
-                                  crossAxisSpacing: 20,
-                                  children: news
-                                      .map(
-                                        (e) => GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushNamed(
-                                              context,
-                                              RouteName.readNews,
-                                              arguments: ReadNewsScreenParams(
-                                                title: e.title,
-                                                description: e.description,
-                                                author: e.source.name,
-                                                image: e.urlToImage!,
-                                                ago: e.publishedAt,
-                                                content: e.content!,
-                                              ),
-                                            );
-                                          },
-                                          child: Latestnews(
-                                            imageUrl: e.urlToImage,
-                                            title: e.title,
-                                            ago:
-                                                '${TimeUtils.ago(e.publishedAt!)} ago',
-                                            source: e.source.name,
+                                if (_newsList.isNotEmpty)
+                                  StaggeredGrid.count(
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 20,
+                                    crossAxisSpacing: 20,
+                                    children: _newsList
+                                        .map(
+                                          (e) => GestureDetector(
+                                            onTap: () {
+                                              Navigator.pushNamed(
+                                                context,
+                                                RouteName.readNews,
+                                                arguments: ReadNewsScreenParams(
+                                                  title: e.title,
+                                                  description: e.description,
+                                                  author: e.source.name,
+                                                  image: e.urlToImage!,
+                                                  ago: e.publishedAt,
+                                                  content: e.content!,
+                                                ),
+                                              );
+                                            },
+                                            child: Latestnews(
+                                              imageUrl: e.urlToImage,
+                                              title: e.title,
+                                              ago:
+                                                  '${TimeUtils.ago(e.publishedAt!)} ago',
+                                              source: e.source.name,
+                                            ),
                                           ),
-                                        ),
-                                      )
-                                      .toList(),
-                                ),
+                                        )
+                                        .toList(),
+                                  )
+                                else
+                                  Center(
+                                    child: TextBody(
+                                      'No News Found',
+                                      color: AppColors.white,
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
