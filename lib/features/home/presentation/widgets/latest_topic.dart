@@ -38,6 +38,7 @@ class Latestnews extends StatelessWidget {
                   image: imageProvider,
                   fit: BoxFit.contain,
                 ),
+                borderRadius: BorderRadius.circular(8),
               ),
             );
           },

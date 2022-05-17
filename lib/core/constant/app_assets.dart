@@ -9,4 +9,5 @@ class AppAsset {
   static const String trendingUp = 'assets/icons/trending-up.svg';
   static const String share = 'assets/icons/share.svg';
   static const String pocket = 'assets/icons/pocket.svg';
+  static const String arrowLeft = 'assets/icons/arrow-left.svg';
 }

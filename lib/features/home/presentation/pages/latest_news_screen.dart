@@ -7,10 +7,12 @@ import 'package:gap/gap.dart';
 import 'package:newsnow/app/app.dart';
 import 'package:newsnow/app/styles/fonts.dart';
 import 'package:newsnow/bootstrap.dart';
+import 'package:newsnow/core/constant/navigators/navigators.dart';
 import 'package:newsnow/core/core.dart';
 import 'package:newsnow/core/utils/time_utils.dart';
 import 'package:newsnow/features/features.dart';
 import 'package:newsnow/features/home/presentation/cubit/latest_news_state.dart';
+import 'package:newsnow/features/home/presentation/pages/read_news_screen.dart';
 import 'package:newsnow/injections.dart';
 
 class LatestNewsScreen extends StatefulWidget {
@@ -72,7 +74,8 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
                                 description: item.description,
                                 author: item.author!,
                                 image: item.urlToImage!,
-                                ago: '${TimeUtils.ago(item.publishedAt!)} ago',
+                                ago: item.publishedAt!,
+                                content: item.content!,
                               );
                             },
                           ),
@@ -86,112 +89,6 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
           },
         ),
       ),
-    );
-  }
-}
-
-class TrendingList extends StatelessWidget {
-  const TrendingList({
-    required this.title,
-    required this.description,
-    required this.author,
-    required this.image,
-    required this.ago,
-    Key? key,
-  }) : super(key: key);
-
-  final String title;
-  final String description;
-  final String author;
-  final String image;
-  final String ago;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextRegular(
-                title,
-                fontSize: 17,
-                fontWeight: FontWeight.w500,
-                color: AppColors.kAsh,
-              ),
-              const Gap(9),
-              TextBody(
-                description,
-                fontSize: 14,
-                color: AppColors.kDarkerAsh,
-              ),
-              const Gap(20),
-              Row(
-                children: [
-                  TextBody(
-                    ago,
-                    fontSize: 12,
-                    color: AppColors.kDarkestAsh,
-                  ),
-                  const Gap(16),
-                  TextBody(
-                    author,
-                    fontSize: 12,
-                    color: AppColors.kDarkestAsh,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CachedNetworkImage(
-              imageUrl: image,
-              imageBuilder: (
-                context,
-                imageProvider,
-              ) {
-                return Container(
-                  width: 118,
-                  height: 132,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.contain,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                );
-              },
-              placeholder: (context, url) => Image.asset(
-                AppAsset.dark,
-                width: 118,
-                height: 132,
-              ),
-              errorWidget: (
-                context,
-                url,
-                error,
-              ) =>
-                  Image.asset(
-                AppAsset.dark,
-              ),
-            ),
-            const Gap(18),
-            Row(
-              children: [
-                SvgPicture.asset(AppAsset.share),
-                const Gap(34.7),
-                SvgPicture.asset(AppAsset.pocket),
-              ],
-            ),
-          ],
-        )
-      ],
     );
   }
 }

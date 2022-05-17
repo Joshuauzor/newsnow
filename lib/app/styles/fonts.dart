@@ -160,3 +160,36 @@ class TextBody extends TextRegular {
           textAlign: textAlign,
         );
 }
+
+class LongText extends StatelessWidget {
+  const LongText(
+    this.text, {
+    this.style,
+    this.textAlign = TextAlign.left,
+    this.overflow = TextOverflow.visible,
+    this.color = AppColors.white,
+    this.fontSize = 14,
+    Key? key,
+  }) : super(key: key);
+  final String? text;
+  final TextStyle? style;
+  final TextAlign textAlign;
+  final TextOverflow overflow;
+  final Color? color;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    assert(text != null, 'test can not be null');
+    return Text(
+      text ?? '',
+      style: TextStyle(
+        fontSize: fontSize,
+        color: color ?? AppColors.primaryColor,
+        fontWeight: FontWeight.w400,
+      ).merge(style),
+      textAlign: textAlign,
+      overflow: overflow,
+    );
+  }
+}

@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class TimeUtils {
@@ -7,5 +8,10 @@ class TimeUtils {
       locale: 'en_short',
       allowFromNow: true,
     );
+  }
+
+  static String datePublished(DateTime dateTime) {
+    final formatter = DateFormat('MMMMEEEEd');
+    return formatter.format(dateTime);
   }
 }

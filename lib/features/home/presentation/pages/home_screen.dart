@@ -69,11 +69,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 36,
                                 ),
                                 const Gap(16),
-                                Hottopics(
-                                  title: news[0].title,
-                                  ago: '2 hours ago',
-                                  source: news[0].source.name,
-                                  image: news[0].urlToImage,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      RouteName.readNews,
+                                      arguments: ReadNewsScreenParams(
+                                        title: news[0].title,
+                                        description: news[0].description,
+                                        author: news[0].source.name,
+                                        image: news[0].urlToImage!,
+                                        ago: news[0].publishedAt,
+                                        content: news[0].content!,
+                                      ),
+                                    );
+                                  },
+                                  child: Hottopics(
+                                    title: news[0].title,
+                                    ago:
+                                        '${TimeUtils.ago(news[0].publishedAt!)} ago',
+                                    source: news[0].source.name,
+                                    image: news[0].urlToImage,
+                                  ),
                                 ),
                                 const Gap(40),
                                 Row(
@@ -95,12 +112,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                   crossAxisSpacing: 20,
                                   children: news
                                       .map(
-                                        (e) => Latestnews(
-                                          imageUrl: e.urlToImage,
-                                          title: e.title,
-                                          ago:
-                                              '${TimeUtils.ago(e.publishedAt!)} ago',
-                                          source: e.source.name,
+                                        (e) => GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                              context,
+                                              RouteName.readNews,
+                                              arguments: ReadNewsScreenParams(
+                                                title: e.title,
+                                                description: e.description,
+                                                author: e.source.name,
+                                                image: e.urlToImage!,
+                                                ago: e.publishedAt,
+                                                content: e.content!,
+                                              ),
+                                            );
+                                          },
+                                          child: Latestnews(
+                                            imageUrl: e.urlToImage,
+                                            title: e.title,
+                                            ago:
+                                                '${TimeUtils.ago(e.publishedAt!)} ago',
+                                            source: e.source.name,
+                                          ),
                                         ),
                                       )
                                       .toList(),
