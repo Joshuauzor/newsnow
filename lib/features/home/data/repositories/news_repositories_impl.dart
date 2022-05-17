@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 import 'package:newsnow/core/errors/error.dart';
 import 'package:newsnow/core/errors/failure.dart';
 import 'package:newsnow/features/features.dart';

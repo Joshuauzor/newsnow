@@ -6,10 +6,10 @@ class AppTabView extends StatefulWidget {
   const AppTabView({Key? key}) : super(key: key);
 
   @override
-  _AppTabViewState createState() => _AppTabViewState();
+  AppTabViewState createState() => AppTabViewState();
 }
 
-class _AppTabViewState extends State<AppTabView> {
+class AppTabViewState extends State<AppTabView> {
   int? _selectedIndex;
 
   void _onItemTapped(int index) {

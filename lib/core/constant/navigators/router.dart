@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsnow/core/core.dart';
 import 'package:newsnow/features/features.dart';
-import 'package:newsnow/features/home/presentation/pages/read_news_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
